@@ -43,13 +43,13 @@ function App() {
         <Info />
         <Row className='mt-2 justify-content-between d-flex'>
           <Col sm={12} md={4} className='text-white mt-1 justify-content-start align-items-start'>
-            <a href=''>Github</a>
+            <a target='_blank' href='https://github.com/Jesuskid/rgt'>Github</a>
           </Col>
           <Col sm={12} md={4} className='text-white mt-1 justify-content-start align-items-start'>
-            <a href={`https://testnet.snowtrace.io/address/${address}`}>Contract</a>
+            <a target='_blank' href={`https://testnet.snowtrace.io/address/${address}`}>Contract</a>
           </Col>
           <Col sm={12} md={4} className='text-white  mt-1 justify-content-start align-items-start'>
-            <a href={`https://testnet.snowtrace.io/address/${Token}`}>MTKToken</a>
+            <a target='_blank' href={`https://testnet.snowtrace.io/address/${Token}`}>MTKToken</a>
           </Col>
         </Row>
       </div>

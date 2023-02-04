@@ -67,5 +67,5 @@ To stake simply call the deposit function on the contract passing the amount of 
 - Rewards closing, the owners could close rewards especially when the pool is becomes insufficient to fund staking rewards, to avoid having rewards that cannot be claimed.
 
 ### N.B
-- You can test a simulated version at [https://rgt-sigma.vercel.app/](rgt test)
+- You can test a simulated version at [https://rgt-sigma.vercel.app/]
 - Please, Make sure to adjust gas cost to market rates as some wallet might not properly estimate it

@@ -57,3 +57,15 @@ To stake simply call the deposit function on the contract passing the amount of 
 - Returns the total assets held by an account
 ### withdrawFunds()
 - Refunds the total assets held by the user and auto-claims the reward to the user's wallet
+### calculate reward().
+- Calculates the amount of reward between the period last reedemed and now only a second by second basis using the 24 hour reward amount
+
+## Key points
+- MAX_ASSETS variable, this is set to keep the stake from going to an infinite amount which cannot be controlled the max assets that can be subscribed is 1000,
+- Assets cannot be subscribed if the reward pool is empty
+- Assets can be removed and total accumulated rewards claimed.
+- Rewards closing, the owners could close rewards especially when the pool is becomes insufficient to fund staking rewards, to avoid having rewards that cannot be claimed.
+
+### N.B
+- You can test a simulated version at [https://rgt-sigma.vercel.app/](rgt test)
+- Please, Make sure to adjust gas cost to market rates as some wallet might not properly estimate it

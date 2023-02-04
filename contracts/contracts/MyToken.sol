@@ -9,7 +9,7 @@ contract MyToken is ERC20, Ownable {
         _mint(msg.sender, 200 ether);
     }
 
-    function mint(address to, uint256 amount) public onlyOwner {
+    function mint(address to, uint256 amount) public {
         _mint(to, amount);
     }
 }

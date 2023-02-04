@@ -23,7 +23,9 @@ contract Stake is ERC20 {
     uint256 public REWARD_CYCLE = 24 hours;
     uint256 public REWARD_CYCLE_SECONDS = 86400 seconds;
     bool inMotion;
+    bool closed;
     address _owner;
+    uint256 rewardsCloseDate;
     modifier nonReentrant() {
         require(inMotion == false);
         inMotion = true;
@@ -85,14 +87,13 @@ contract Stake is ERC20 {
     {
         Investor storage investor = deposits[holder];
         uint256 AssetHolding = Asset[holder];
-        uint256 span = (block.timestamp - investor.lastRewardReedemed) *
-            1 seconds;
+        uint256 span = closed == false
+            ? (block.timestamp - investor.lastRewardReedemed) * 1 seconds
+            : (rewardsCloseDate - investor.lastRewardReedemed) * 1 seconds;
         uint256 dailyReward = REWARD_UNIT * AssetHolding;
 
         uint256 fullCycleRewards = (span * dailyReward) / REWARD_CYCLE_SECONDS;
-        uint256 rewards = balanceOf(address(this)) >= fullCycleRewards
-            ? fullCycleRewards
-            : 0;
+        uint256 rewards = fullCycleRewards;
         return (rewards, block.timestamp);
     }
 
@@ -155,6 +156,19 @@ contract Stake is ERC20 {
 
     function changeOwner(address newOwner) public onlyOwner {
         _owner = newOwner;
+    }
+
+    function _closeRewards(uint256 closeDateSeconds) internal {
+        require(closed == false, "Rewards not closed");
+        closed = true;
+        uint256 date = closeDateSeconds * 1 seconds;
+        //cannot be back dated, to protect rewards earned and not claimed yet so far
+        require(date >= block.timestamp);
+        rewardsCloseDate = date;
+    }
+
+    function closeRewards(uint256 closeDateSeconds) external onlyOwner {
+        _closeRewards(closeDateSeconds);
     }
 
     /*

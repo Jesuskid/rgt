@@ -8,12 +8,18 @@ const hre = require("hardhat");
 require("dotenv").config()
 async function main() {
 
+  const MyToken = await hre.ethers.getContractFactory("MyToken");
+  const myToken = await MyToken.deploy()
 
   const Stake = await hre.ethers.getContractFactory("Stake");
-  const stake = await Stake.deploy(process.env.STAKED_TOKEN,);
+  const stake = await Stake.deploy(myToken.address || process.env.STAKED_TOKEN,);
+
 
   await stake.deployed();
 
+  console.log(
+    ` token deployed to ${myToken.address}`
+  );
   console.log(
     `stake deployed to ${stake.address}`
   );

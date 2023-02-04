@@ -6,8 +6,8 @@ import { ERC20Interface } from '@usedapp/core'
 
 const IStake = new utils.Interface(stakeAbi)
 
-export const address = "0x28977C5E39916b8837718Aea4564eE8F3d27A1b3"
-export const Token = '0xDbaa56A40b6198dBB0F3Da160cF884A6b2b6c56F'
+export const address = "0xD31658D910Aa070974c187168790624527cd2314"
+export const Token = '0xea00921f53Bc4e69EDDf4C6D326435975F30Ed4b'
 
 // 0xa19557634e8fE32A35F701864b70E841461919CE
 export const NATIVE_TK_SYMBOL = 'SRWD'

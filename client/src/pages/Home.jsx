@@ -48,10 +48,11 @@ const Home = () => {
     //
     return (
         <div className='p-5 blue-glassmorphism card d-flex flex-column align-items-start'>
-            <input value={value} onChange={(e) => handleChange(e)} className='my-2 form-control' placeholder="0.0" />
+            <input value={value} onChange={(e) => handleChange(e)} className='my-2 form-control' placeholder="MTK Amount" />
             <p className='align-items-start'>Balance: {daiBalance ? formatEther(daiBalance) : 0} {TOKEN_SYMBOL}</p>
             {!account ? <button onClick={sign()} className='my-2 w-100'>Connect</button> : daiBalance && (daiBalance > 0 && allowance > parseInt(value) ? <button onClick={() => stakeIt()} className='my-2 w-100'>Stake</button> : <button onClick={approveIt} className='my-2 w-100'>Approve</button>)}
             <p className='text-red'>{error}</p>
+            <a className='text-white' target='_blank' href={`https://testnet.snowtrace.io/address/${Token}#writeContract`}>GET MTK Token</a>
         </div>
     )
 }

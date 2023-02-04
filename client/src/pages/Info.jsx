@@ -69,6 +69,8 @@ const Info = () => {
                     <button className='w-100'>{currentDeposits ? formatEther(currentDeposits.toString()) : 0} {TOKEN_SYMBOL}</button>
                 </Col>
             </Row>
+
+
         </div>
     )
 }

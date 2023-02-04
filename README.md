@@ -47,13 +47,13 @@ To stake simply call the deposit function on the contract passing the amount of 
 
 ## Key Functions
 
-#### deposit(uint256 amount)
+### deposit(uint256 amount)
 - Allows the use to deposit an amount of MTK tokens in exchange for assets
-#### myRewards(address account)
+### myRewards(address account)
 - Returns the cumulative reward for the total period unclaimed for a user who staked.
-# claimReward().
+### claimReward().
 - sends the SRWD token equal to the cumulative reward for the total period unclaimed for a user who staked.
-# assetHeld(address account). 
+### assetHeld(address account). 
 - Returns the total assets held by an account
-# withdrawFunds()
+### withdrawFunds()
 - Refunds the total assets held by the user and auto-claims the reward to the user's wallet

@@ -23,7 +23,7 @@ function App() {
         params: [{ chainId: '0xA869' }], // chainId must be in hexadecimal numbers
       });
     }
-  }, [chainId])
+  }, [, chainId])
 
   return (
     <>
